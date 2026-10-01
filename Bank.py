@@ -1,0 +1,102 @@
+import pandas as pd
+import numpy as np
+import fuzzywuzzy
+pd.plotting.register_matplotlib_converters()
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+name = input('Enter file:')
+if len(name) < 1 : name = 'bank.csv'
+
+fhandle = open(name)
+#print(fhandle)
+
+bank = pd.read_csv(fhandle)
+missing_values_count = bank.isnull() .sum()
+print(missing_values_count)
+print(bank.head())
+
+bank1 = bank.describe() .round(3)
+#print(bank1)
+#bank1.to_csv("Bank1.csv")
+
+bank2 = bank['job'].value_counts()
+#print(bank2)
+#bank2.to_csv("Bank2.csv")
+bank2b = (bank['job'].value_counts(normalize=True) * 100) .round(3)
+#print(bank2b)
+#sns.barplot(y=bank2b.index, x=bank2b.values)
+#plt.xlabel("percentage")
+#plt.show()
+
+bank3 = bank['marital'].value_counts()
+#print(bank3)
+#bank3.to_csv("Bank3.csv")
+bank3b = (bank['marital'].value_counts(normalize=True) * 100) .round(3)
+#print(bank3b)
+#sns.barplot(x=bank3b.index, y=bank3b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank4 = bank['education'].value_counts()
+#print(bank4)
+#bank4.to_csv("Bank4.csv")
+bank4b = (bank['education'].value_counts(normalize=True) * 100) .round(3)
+#print(bank4b)
+#sns.barplot(x=bank4b.index, y=bank4b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank5 = bank['default'].value_counts()
+#print(bank5)
+#bank5.to_csv("Bank5.csv")
+bank5b = (bank['default'].value_counts(normalize=True) * 100) .round(3)
+#print(bank5b)
+#sns.barplot(x=bank5b.index, y=bank5b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank6 = bank['housing'].value_counts()
+#print(bank6)
+#bank6.to_csv("Bank6.csv")
+bank6b = (bank['housing'].value_counts(normalize=True) * 100) .round(3)
+#print(bank6b)
+#sns.barplot(x=bank6b.index, y=bank6b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank7 = bank['loan'].value_counts()
+#print(bank7)
+#bank7.to_csv("Bank7.csv")
+bank7b = (bank['loan'].value_counts(normalize=True) * 100) .round(3)
+#print(bank7b)
+#sns.barplot(x=bank7b.index, y=bank7b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank8 = bank['contact'].value_counts()
+#print(bank8)
+#bank8.to_csv("Bank8.csv")
+bank8b = (bank['contact'].value_counts(normalize=True) * 100) .round(3)
+#print(bank8b)
+#sns.barplot(x=bank8b.index, y=bank8b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank9 = bank['poutcome'].value_counts()
+#print(bank9)
+#bank9.to_csv("Bank9.csv")
+bank9b = (bank['poutcome'].value_counts(normalize=True) * 100) .round(3)
+#print(bank9b)
+#sns.barplot(x=bank9b.index, y=bank9b.values)
+#plt.ylabel("percentage")
+#plt.show()
+
+bank10 = bank['deposit'].value_counts()
+#print(bank10)
+#bank10.to_csv("Bank10.csv")
+bank10b = (bank['deposit'].value_counts(normalize=True) * 100) .round(3)
+#print(bank10b)
+#sns.barplot(x=bank10b.index, y=bank10b.values)
+#plt.ylabel("percentage")
+#plt.show()
